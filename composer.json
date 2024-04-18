@@ -1,0 +1,29 @@
+{
+    "name": "phplib/trace-bundle",
+    "type": "symfony-bundle",
+    "description": "Trace bundle for Symfony",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.3",
+        "symfony/http-kernel": "^6.4",
+        "ramsey/uuid": "^4.7",
+        "monolog/monolog": "^3.6",
+        "symfony/dependency-injection": "^6.4",
+        "symfony/config": "^6.4",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "config": {
+        "secure-http": false
+    },
+    "autoload": {
+        "psr-4": {
+            "TraceBundle\\": "src/"
+        }
+    },
+    "repositories": [
+        {
+            "packagist.org": false
+        }
+    ],
+    "prefer-stable": true
+}

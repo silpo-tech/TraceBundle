@@ -1,0 +1,41 @@
+services:
+  _defaults:
+    public: true
+  
+  trace.client.middleware:
+    class: TraceBundle\Middleware\ProxyTraceIdMiddleware
+    arguments:
+      - '@trace.storage.trace_id'
+      - '%trace.id_header_name%'
+
+  trace.monolog_add_trace_id_processor:
+    class: TraceBundle\Monolog\AddTraceIdProcessor
+    arguments:
+      - '@trace.storage.trace_id'
+      - '%trace.id_log_extra_name%'
+    tags: [ monolog.processor ]
+  
+  TraceBundle\Storage\TraceIdStorageInterface:
+    alias: trace.storage.trace_id
+    public: false
+  
+  trace.storage.trace_id:
+    class: TraceBundle\Storage\TraceIdStorage
+
+  TraceBundle\Generator\TraceGeneratorInterface:
+    alias: trace.generator.trace_id
+    public: false
+
+  trace.generator.trace_id:
+    class: TraceBundle\Generator\UuidGenerator
+  
+  trace.http.event_subscriber:
+    class: TraceBundle\EventSubscriber\HttpEventSubscriber
+    arguments:
+      - '@trace.storage.trace_id'
+      - '@trace.generator.trace_id'
+      - '%trace.id_header_name%'
+    tags:
+      - kernel.event_subscriber
+      - { name: kernel.reset, method: reset }
+  
