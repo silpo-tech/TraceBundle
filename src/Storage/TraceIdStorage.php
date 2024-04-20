@@ -19,7 +19,6 @@ final class TraceIdStorage implements ResetInterface, TraceIdStorageInterface
         return $this->traceId;
     }
 
-    /** TODO mb just once */
     public function set(string $traceId): self
     {
         $this->traceId = $traceId;

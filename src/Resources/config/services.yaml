@@ -5,35 +5,35 @@ services:
   trace.client.middleware:
     class: TraceBundle\Middleware\ProxyTraceIdMiddleware
     arguments:
-      - '@trace.storage.trace_id'
+      - '@trace.storage'
       - '%trace.id_header_name%'
 
   trace.monolog_add_trace_id_processor:
     class: TraceBundle\Monolog\AddTraceIdProcessor
     arguments:
-      - '@trace.storage.trace_id'
+      - '@trace.storage'
       - '%trace.id_log_extra_name%'
     tags: [ monolog.processor ]
   
   TraceBundle\Storage\TraceIdStorageInterface:
-    alias: trace.storage.trace_id
+    alias: trace.storage
     public: false
   
-  trace.storage.trace_id:
+  trace.storage:
     class: TraceBundle\Storage\TraceIdStorage
 
   TraceBundle\Generator\TraceGeneratorInterface:
-    alias: trace.generator.trace_id
+    alias: trace.generator
     public: false
 
-  trace.generator.trace_id:
+  trace.generator:
     class: TraceBundle\Generator\UuidGenerator
   
   trace.http.event_subscriber:
     class: TraceBundle\EventSubscriber\HttpEventSubscriber
     arguments:
-      - '@trace.storage.trace_id'
-      - '@trace.generator.trace_id'
+      - '@trace.storage'
+      - '@trace.generator'
       - '%trace.id_header_name%'
     tags:
       - kernel.event_subscriber
