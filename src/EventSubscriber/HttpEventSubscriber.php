@@ -22,7 +22,9 @@ final class HttpEventSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            KernelEvents::REQUEST => 'onRequest',
+            KernelEvents::REQUEST => [
+                ['onRequest', 1536],
+            ],
         ];
     }
 

@@ -23,7 +23,7 @@ class TraceBundle extends AbstractBundle
             ->children()
             ->scalarNode('id_header_name')->defaultValue('X-Request-Id')->end()
             ->scalarNode('id_log_extra_name')->defaultValue('requestId')->end()
-            ->booleanNode('autoconfigure_handler_stacks')->defaultTrue()->end()
+            ->booleanNode('autoconfigure_handlers')->defaultTrue()->end()
             ->end()
         ;
     }
@@ -40,9 +40,9 @@ class TraceBundle extends AbstractBundle
         $loader = new YamlFileLoader($containerBuilder, new FileLocator(__DIR__ . '/Resources/config'));
         $loader->load('services.yaml');
 
-        if ($config['autoconfigure_handler_stacks']) {
+        if ($config['autoconfigure_handlers']) {
             $containerBuilder->registerForAutoconfiguration(HandlerStack::class)
-                ->addTag('trace.handler_stack')
+                ->addTag('trace.traceable_handler')
             ;
         }
 

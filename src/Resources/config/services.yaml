@@ -21,6 +21,8 @@ services:
   
   trace.storage:
     class: TraceBundle\Storage\TraceIdStorage
+    tags:
+      - { name: kernel.reset, method: reset }
 
   TraceBundle\Generator\TraceGeneratorInterface:
     alias: trace.generator
@@ -37,5 +39,3 @@ services:
       - '%trace.id_header_name%'
     tags:
       - kernel.event_subscriber
-      - { name: kernel.reset, method: reset }
-  

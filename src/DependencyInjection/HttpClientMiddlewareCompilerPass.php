@@ -15,12 +15,12 @@ final class HttpClientMiddlewareCompilerPass implements CompilerPassInterface
     {
         $middleWare = $container->getDefinition('trace.client.middleware');
 
-        $handlerStacks = $container->findTaggedServiceIds('trace.handler_stack');
+        $handlers = $container->findTaggedServiceIds('trace.traceable_handler');
 
-        foreach ($handlerStacks as $id => $tags) {
-            $handlerStack = $container->getDefinition($id);
+        foreach ($handlers as $id => $tags) {
+            $handler = $container->getDefinition($id);
 
-            $handlerStack->addMethodCall('push', [$middleWare, self::TRACE_MIDDLEWARE_NAME]);
+            $handler->addMethodCall('push', [$middleWare, self::TRACE_MIDDLEWARE_NAME]);
         }
     }
 }
