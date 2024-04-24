@@ -20,10 +20,5 @@
             "TraceBundle\\": "src/"
         }
     },
-    "repositories": [
-        {
-            "packagist.org": false
-        }
-    ],
     "prefer-stable": true
 }
