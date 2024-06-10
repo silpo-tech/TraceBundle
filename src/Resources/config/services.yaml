@@ -7,6 +7,9 @@ services:
     arguments:
       - '@trace.storage'
       - '%trace.id_header_name%'
+  
+  trace.client.middleware_sentry:
+    class: TraceBundle\Middleware\SentryGuzzleTracingMiddlewareAdapter
 
   trace.monolog_add_trace_id_processor:
     class: TraceBundle\Monolog\AddTraceIdProcessor
