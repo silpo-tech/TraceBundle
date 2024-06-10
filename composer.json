@@ -20,5 +20,8 @@
             "TraceBundle\\": "src/"
         }
     },
+    "suggest": {
+        "sentry/sentry": "Adds sentry tracing middleware to Guzzle handlers"
+    },
     "prefer-stable": true
 }
