@@ -5,15 +5,12 @@
     "license": "proprietary",
     "require": {
         "php": ">=8.3",
-        "symfony/http-kernel": "^6.4",
+        "symfony/http-kernel": "^6.4|^7.0",
         "ramsey/uuid": "^4.7",
         "monolog/monolog": "^3.6",
-        "symfony/dependency-injection": "^6.4",
-        "symfony/config": "^6.4",
+        "symfony/dependency-injection": "^6.4|^7.0",
+        "symfony/config": "^6.4|^7.0",
         "guzzlehttp/guzzle": "^7.0"
-    },
-    "config": {
-        "secure-http": false
     },
     "autoload": {
         "psr-4": {
