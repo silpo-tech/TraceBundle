@@ -3,6 +3,7 @@
     "type": "symfony-bundle",
     "description": "Trace bundle for Symfony",
     "license": "proprietary",
+    "minimum-stability": "stable",
     "require": {
         "php": ">=8.3",
         "symfony/http-kernel": "^6.4|^7.0",
@@ -17,8 +18,21 @@
             "TraceBundle\\": "src/"
         }
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.packagist.com/fozzy/"
+        },
+        {
+            "packagist.org": false
+        }
+    ],
     "suggest": {
         "sentry/sentry": "Adds sentry tracing middleware to Guzzle handlers"
     },
-    "prefer-stable": true
+    "prefer-stable": true,
+    "require-dev": {
+        "sentry/sentry": "^4.9",
+        "phplib/message-bus-bundle": "^1.6"
+    }
 }
