@@ -12,6 +12,7 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 use TraceBundle\DependencyInjection\HttpClientMiddlewareCompilerPass;
+use TraceBundle\DependencyInjection\MessageBusCompilerPass;
 
 class TraceBundle extends AbstractBundle
 {
@@ -33,6 +34,7 @@ class TraceBundle extends AbstractBundle
         parent::build($container);
 
         $container->addCompilerPass(new HttpClientMiddlewareCompilerPass());
+        $container->addCompilerPass(new MessageBusCompilerPass());
     }
 
     public function loadExtension(array $config, ContainerConfigurator $containerConfigurator, ContainerBuilder $containerBuilder): void
