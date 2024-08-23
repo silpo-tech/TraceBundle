@@ -28,7 +28,11 @@
         }
     ],
     "suggest": {
-        "sentry/sentry": "Adds sentry tracing middleware to Guzzle handlers"
+        "sentry/sentry": "Adds sentry tracing middleware to Guzzle handlers",
+        "phplib/message-bus-bundle": "Adds correlation ids to messages and to logs"
+    },
+    "conflict": {
+        "phplib/message-bus-bundle": "<1.6"
     },
     "prefer-stable": true,
     "require-dev": {
