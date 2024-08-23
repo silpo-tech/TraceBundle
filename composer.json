@@ -32,11 +32,11 @@
         "phplib/message-bus-bundle": "Adds correlation ids to messages and to logs"
     },
     "conflict": {
-        "phplib/message-bus-bundle": "<1.6"
+        "phplib/message-bus-bundle": "<1.4.5"
     },
     "prefer-stable": true,
     "require-dev": {
         "sentry/sentry": "^4.9",
-        "phplib/message-bus-bundle": "^1.6"
+        "phplib/message-bus-bundle": "^1.4.5"
     }
 }
