@@ -7,7 +7,7 @@ namespace TraceBundle\Middleware;
 use Psr\Http\Message\RequestInterface;
 use TraceBundle\Storage\TraceIdStorageInterface;
 
-final class ProxyTraceIdMiddleware
+final readonly class ProxyTraceIdMiddleware
 {
     public function __construct(
         private TraceIdStorageInterface $traceIdStorage,

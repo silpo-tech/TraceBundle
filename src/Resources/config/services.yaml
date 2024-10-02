@@ -34,8 +34,8 @@ services:
   trace.generator:
     class: TraceBundle\Generator\UuidGenerator
   
-  trace.http.event_subscriber:
-    class: TraceBundle\EventSubscriber\HttpEventSubscriber
+  trace.http.request_id_init_subscriber:
+    class: TraceBundle\EventSubscriber\RequestIdInitSubscriber
     arguments:
       - '@trace.storage'
       - '@trace.generator'
@@ -45,6 +45,14 @@ services:
 
   trace.sentry.event_subscriber:
     class: TraceBundle\EventSubscriber\SentryTransactionEnrichSubscriber
+    arguments:
+      - '@trace.storage'
+      - '%trace.id_header_name%'
+    tags:
+      - kernel.event_subscriber
+
+  trace.http.response_subscriber:
+    class: TraceBundle\EventSubscriber\WriteRequestIdToResponseSubscriber
     arguments:
       - '@trace.storage'
       - '%trace.id_header_name%'

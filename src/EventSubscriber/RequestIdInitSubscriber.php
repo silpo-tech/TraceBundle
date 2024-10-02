@@ -10,7 +10,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 use TraceBundle\Generator\TraceIdGeneratorInterface;
 use TraceBundle\Storage\TraceIdStorageInterface;
 
-final class HttpEventSubscriber implements EventSubscriberInterface
+final class RequestIdInitSubscriber implements EventSubscriberInterface
 {
     public function __construct(
         private readonly TraceIdStorageInterface $traceIdStorage,
