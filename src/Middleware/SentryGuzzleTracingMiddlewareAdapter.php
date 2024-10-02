@@ -7,7 +7,7 @@ namespace TraceBundle\Middleware;
 use LogicException;
 use Sentry\Tracing\GuzzleTracingMiddleware;
 
-final class SentryGuzzleTracingMiddlewareAdapter
+final readonly class SentryGuzzleTracingMiddlewareAdapter
 {
     public function __invoke(callable $handler): callable
     {
