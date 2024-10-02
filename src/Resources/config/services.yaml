@@ -42,3 +42,11 @@ services:
       - '%trace.id_header_name%'
     tags:
       - kernel.event_subscriber
+
+  trace.sentry.event_subscriber:
+    class: TraceBundle\EventSubscriber\SentryTransactionEnrichSubscriber
+    arguments:
+      - '@trace.storage'
+      - '%trace.id_header_name%'
+    tags:
+      - kernel.event_subscriber
