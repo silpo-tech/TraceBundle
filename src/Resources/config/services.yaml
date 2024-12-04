@@ -58,3 +58,11 @@ services:
       - '%trace.id_header_name%'
     tags:
       - kernel.event_subscriber
+
+  trace.console.command_subscriber:
+    class: TraceBundle\EventSubscriber\ConsoleSubscriber
+    arguments:
+      - '@trace.storage'
+      - '@trace.generator'
+    tags:
+      - kernel.event_subscriber
