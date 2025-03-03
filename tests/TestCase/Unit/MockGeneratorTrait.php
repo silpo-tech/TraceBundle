@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+namespace TraceBundle\Tests\TestCase\Unit;
+
+use PHPUnit\Framework\MockObject\MockObject;
+use TraceBundle\Generator\TraceIdGeneratorInterface;
+
+trait MockGeneratorTrait
+{
+    protected function getIdGeneratorMock(string $uuid): TraceIdGeneratorInterface | MockObject
+    {
+        /** @var TraceIdGeneratorInterface $generator */
+        $generator = $this->createMock(TraceIdGeneratorInterface::class);
+        $generator
+            ->method('generate')
+            ->willReturn($uuid);
+
+        return $generator;
+    }
+}

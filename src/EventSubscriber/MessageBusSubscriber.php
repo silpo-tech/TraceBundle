@@ -11,12 +11,12 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use TraceBundle\Generator\TraceIdGeneratorInterface;
 use TraceBundle\Storage\TraceIdStorageInterface;
 
-final class MessageBusSubscriber implements EventSubscriberInterface
+final readonly class MessageBusSubscriber implements EventSubscriberInterface
 {
     public function __construct(
-        private readonly TraceIdStorageInterface $traceIdStorage,
-        private readonly TraceIdGeneratorInterface $traceIdGenerator,
-        private readonly string $traceIdHeaderName,
+        private TraceIdStorageInterface $traceIdStorage,
+        private TraceIdGeneratorInterface $traceIdGenerator,
+        private string $traceIdHeaderName,
     ) {
     }
 

@@ -13,7 +13,7 @@ final readonly class WriteRequestIdToResponseSubscriber implements EventSubscrib
 {
     public function __construct(
         private TraceIdStorageInterface $traceIdStorage,
-        private string $traceIdHeaderName
+        private string $traceIdHeaderName,
     ) {
     }
 

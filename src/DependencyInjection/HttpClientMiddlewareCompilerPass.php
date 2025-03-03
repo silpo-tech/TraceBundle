@@ -10,8 +10,8 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 final class HttpClientMiddlewareCompilerPass implements CompilerPassInterface
 {
-    private const TRACE_MIDDLEWARE_NAME = 'trace';
-    private const SENTRY_TRACE_MIDDLEWARE_NAME = 'sentry-trace';
+    private const string TRACE_MIDDLEWARE_NAME = 'trace';
+    private const string SENTRY_TRACE_MIDDLEWARE_NAME = 'sentry-trace';
 
     public function process(ContainerBuilder $container): void
     {
