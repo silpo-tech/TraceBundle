@@ -12,17 +12,17 @@ use TraceBundle\Storage\TraceIdStorageInterface;
 
 final readonly class ConsoleSubscriber implements EventSubscriberInterface
 {
-
     public function __construct(
         private TraceIdStorageInterface $traceIdStorage,
         private TraceIdGeneratorInterface $traceIdGenerator,
     ) {
     }
 
-    public static function getSubscribedEvents() {
+    public static function getSubscribedEvents(): array
+    {
         return [
             ConsoleEvents::COMMAND => [
-                ['__invoke', 512]
+                ['__invoke', 512],
             ],
         ];
     }
