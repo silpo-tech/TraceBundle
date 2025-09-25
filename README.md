@@ -9,12 +9,12 @@ A Symfony bundle for distributed tracing and request correlation across microser
 - **Logging Integration**: Adds trace IDs to Monolog log entries
 - **Console Support**: Generates trace IDs for console commands
 - **Sentry Integration**: Enriches Sentry transactions with trace information
-- **Message Bus Support**: Correlates messages with trace IDs (requires phplib/message-bus-bundle)
+- **Message Bus Support**: Correlates messages with trace IDs (requires silpo-tech/message-bus-bundle)
 
 ## Installation
 
 ```bash
-composer require phplib/trace-bundle
+composer require silpo-tech/trace-bundle
 ```
 
 ## Configuration
@@ -91,7 +91,7 @@ When `sentry/sentry` is installed, the bundle automatically enriches Sentry tran
 
 ### Message Bus
 
-When `phplib/message-bus-bundle` is installed (version ≥1.4.5), trace IDs are automatically propagated through message bus operations.
+When `silpo-tech/message-bus-bundle` is installed (version ≥1.4.5), trace IDs are automatically propagated through message bus operations.
 
 ## Requirements
 
@@ -111,7 +111,7 @@ When `phplib/message-bus-bundle` is installed (version ≥1.4.5), trace IDs are 
 
 ### Optional
 - `sentry/sentry` - For Sentry integration
-- `phplib/message-bus-bundle` - For message bus correlation
+- `silpo-tech/message-bus-bundle` - For message bus correlation
 
 ## Testing
 

@@ -1,5 +1,5 @@
 {
-    "name": "phplib/trace-bundle",
+    "name": "silpo-tech/trace-bundle",
     "type": "symfony-bundle",
     "description": "Trace bundle for Symfony",
     "license": "MIT",
@@ -28,25 +28,16 @@
             "TraceBundle\\Tests\\": "tests/"
         }
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://repo.packagist.com/fozzy/"
-        },
-        {
-            "packagist.org": false
-        }
-    ],
     "suggest": {
         "sentry/sentry": "Adds sentry tracing middleware to Guzzle handlers",
-        "phplib/message-bus-bundle": "Adds correlation ids to messages and to logs"
+        "silpo-tech/message-bus-bundle": "Adds correlation ids to messages and to logs"
     },
     "conflict": {
-        "phplib/message-bus-bundle": "<1.4.5"
+        "silpo-tech/message-bus-bundle": "<1.4.5"
     },
     "require-dev": {
         "sentry/sentry": "^4.9",
-        "phplib/message-bus-bundle": "^1.4.5",
+        "silpo-tech/message-bus-bundle": "^1.4.5",
         "phpunit/phpunit": "^11.5",
         "enqueue/enqueue-bundle": "^0.10.24",
         "phpstan/phpstan": "^2.0",
