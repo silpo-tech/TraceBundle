@@ -72,4 +72,39 @@ class SentryTransactionEnrichSubscriberTest extends TestCase
         $subscriber->addRequestIdToSentryTransaction($event);
         $this->addToAssertionCount(1);
     }
+
+    public function testAddRequestIdToSentryTransactionWhenNoTransaction(): void
+    {
+        $request = new Request();
+        $event = new RequestEvent(
+            $this->createMock(Kernel::class),
+            $request,
+            HttpKernelInterface::MAIN_REQUEST,
+        );
+        $storage = new TraceIdStorage();
+        $storage->set('test-uuid');
+
+        // Ensure no transaction is active
+        SentrySdk::getCurrentHub()->setSpan(null);
+
+        $subscriber = new SentryTransactionEnrichSubscriber($storage, 'X-Request-Id');
+        $subscriber->addRequestIdToSentryTransaction($event);
+        $this->addToAssertionCount(1);
+    }
+
+    public function testAddRequestIdToSentryTransactionWhenNoTraceId(): void
+    {
+        $request = new Request();
+        $event = new RequestEvent(
+            $this->createMock(Kernel::class),
+            $request,
+            HttpKernelInterface::MAIN_REQUEST,
+        );
+        $storage = new TraceIdStorage();
+        // Don't set any trace ID (storage->get() will return null)
+
+        $subscriber = new SentryTransactionEnrichSubscriber($storage, 'X-Request-Id');
+        $subscriber->addRequestIdToSentryTransaction($event);
+        $this->addToAssertionCount(1);
+    }
 }
