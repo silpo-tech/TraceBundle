@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TraceBundle\Tests\TestCase\Unit;
+namespace TraceBundle\Tests\TestCase\Unit\Monolog;
 
 use Monolog\LogRecord;
 use PHPUnit\Framework\TestCase;

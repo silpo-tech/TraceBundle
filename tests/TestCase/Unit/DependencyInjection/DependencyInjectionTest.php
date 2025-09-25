@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TraceBundle\Tests\TestCase\Unit;
+namespace TraceBundle\Tests\TestCase\Unit\DependencyInjection;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
