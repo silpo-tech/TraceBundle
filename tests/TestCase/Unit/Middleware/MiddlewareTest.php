@@ -52,11 +52,14 @@ class MiddlewareTest extends TestCase
     public function testSentryGuzzleTracingMiddlewareAdapterWorksWithSentry(): void
     {
         $middleware = new SentryGuzzleTracingMiddlewareAdapter();
-        $handler = function ($request, $options) {
-            return 'response';
+        $expectedResponse = 'response';
+
+        $handler = function ($request, $options) use ($expectedResponse) {
+            return \GuzzleHttp\Promise\Create::promiseFor($expectedResponse);
         };
 
         $wrappedHandler = $middleware($handler);
-        $this->assertIsCallable($wrappedHandler);
+        $result = $wrappedHandler(new Request('GET', 'http://example.com'), []);
+        $this->assertEquals($expectedResponse, $result->wait());
     }
 }

@@ -15,13 +15,13 @@ class DependencyInjectionTest extends TestCase
     public function testHttpClientMiddlewareCompilerPassProcess(): void
     {
         $container = new ContainerBuilder();
-        
+
         $middlewareDefinition = new Definition();
         $container->setDefinition('trace.client.middleware', $middlewareDefinition);
-        
+
         $sentryMiddlewareDefinition = new Definition();
         $container->setDefinition('trace.client.middleware_sentry', $sentryMiddlewareDefinition);
-        
+
         $handlerDefinition = new Definition();
         $handlerDefinition->addTag('trace.traceable_handler');
         $container->setDefinition('test.handler', $handlerDefinition);
@@ -31,7 +31,7 @@ class DependencyInjectionTest extends TestCase
 
         $handler = $container->getDefinition('test.handler');
         $methodCalls = $handler->getMethodCalls();
-        
+
         $this->assertGreaterThanOrEqual(1, count($methodCalls));
         $this->assertEquals('push', $methodCalls[0][0]);
         $this->assertEquals('trace', $methodCalls[0][1][1]);
@@ -40,7 +40,7 @@ class DependencyInjectionTest extends TestCase
     public function testMessageBusCompilerPassWithoutMessageBusBundle(): void
     {
         $container = new ContainerBuilder();
-        
+
         $compilerPass = new MessageBusCompilerPass();
         $compilerPass->process($container);
 
@@ -55,18 +55,18 @@ class DependencyInjectionTest extends TestCase
             {
                 return 'message_bus';
             }
-            
+
             public function load(array $configs, ContainerBuilder $container): void
             {
             }
         });
-        
+
         $storageDefinition = new Definition();
         $container->setDefinition('trace.storage', $storageDefinition);
-        
+
         $generatorDefinition = new Definition();
         $container->setDefinition('trace.generator', $generatorDefinition);
-        
+
         $container->setParameter('trace.id_header_name', 'X-Request-Id');
 
         $compilerPass = new MessageBusCompilerPass();

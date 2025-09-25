@@ -14,11 +14,11 @@ class TraceBundleTest extends TestCase
     {
         $bundle = new TraceBundle();
         $container = new ContainerBuilder();
-        
+
         $initialPassCount = count($container->getCompilerPassConfig()->getPasses());
         $bundle->build($container);
         $finalPassCount = count($container->getCompilerPassConfig()->getPasses());
-        
+
         $this->assertEquals(2, $finalPassCount - $initialPassCount);
     }
 }

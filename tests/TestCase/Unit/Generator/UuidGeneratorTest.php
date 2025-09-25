@@ -13,8 +13,7 @@ class UuidGeneratorTest extends TestCase
     {
         $generator = new UuidGenerator();
         $uuid = $generator->generate();
-        
-        $this->assertIsString($uuid);
+
         $this->assertMatchesRegularExpression('/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/', $uuid);
     }
 
@@ -23,7 +22,7 @@ class UuidGeneratorTest extends TestCase
         $generator = new UuidGenerator();
         $uuid1 = $generator->generate();
         $uuid2 = $generator->generate();
-        
+
         $this->assertNotEquals($uuid1, $uuid2);
     }
 }
