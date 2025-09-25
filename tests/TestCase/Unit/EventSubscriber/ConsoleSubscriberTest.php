@@ -11,7 +11,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use TraceBundle\EventSubscriber\ConsoleSubscriber;
 use TraceBundle\Storage\TraceIdStorage;
-use TraceBundle\Tests\TestCase\Unit\MockGeneratorTrait;
+use TraceBundle\Tests\Helper\MockGeneratorTrait;
 
 class ConsoleSubscriberTest extends TestCase
 {

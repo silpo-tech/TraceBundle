@@ -11,7 +11,7 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
 use TraceBundle\EventSubscriber\RequestIdInitSubscriber;
 use TraceBundle\Generator\UuidGenerator;
 use TraceBundle\Storage\TraceIdStorage;
-use TraceBundle\Tests\TestCase\Unit\MockGeneratorTrait;
+use TraceBundle\Tests\Helper\MockGeneratorTrait;
 use TraceBundle\Tests\TestKernel;
 
 class RequestIdInitSubscriberTest extends TestCase

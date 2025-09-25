@@ -10,7 +10,7 @@ use MessageBusBundle\Events\PreConsumeEvent;
 use MessageBusBundle\Events\PrePublishEvent;
 use PHPUnit\Framework\TestCase;
 use TraceBundle\EventSubscriber\MessageBusSubscriber;
-use TraceBundle\Tests\TestCase\Unit\MockGeneratorTrait;
+use TraceBundle\Tests\Helper\MockGeneratorTrait;
 use TraceBundle\Storage\TraceIdStorage;
 
 class MessageBusSubscriberTest extends TestCase
