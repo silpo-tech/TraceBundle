@@ -65,12 +65,9 @@ class MiddlewareTest extends TestCase
 
     public function testSentryGuzzleTracingMiddlewareAdapterThrowsExceptionWhenSentryNotInstalled(): void
     {
-        $middleware = new class extends SentryGuzzleTracingMiddlewareAdapter {
-            protected function sentryClassExists(): bool
-            {
-                return false;
-            }
-        };
+        $middleware = new SentryGuzzleTracingMiddlewareAdapter(
+            fn (string $class) => false // Simulate class doesn't exist
+        );
 
         $this->expectException(\LogicException::class);
         $this->expectExceptionMessage('Cannot use TraceBundle\Middleware\SentryGuzzleTracingMiddlewareAdapter without sentry/sentry installed. Try running "composer require sentry/sentry".');
