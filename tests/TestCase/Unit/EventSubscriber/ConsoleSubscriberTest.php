@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TraceBundle\Tests\TestCase\Unit;
+namespace TraceBundle\Tests\TestCase\Unit\EventSubscriber;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Command\Command;
@@ -11,6 +11,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use TraceBundle\EventSubscriber\ConsoleSubscriber;
 use TraceBundle\Storage\TraceIdStorage;
+use TraceBundle\Tests\Helper\MockGeneratorTrait;
 
 class ConsoleSubscriberTest extends TestCase
 {

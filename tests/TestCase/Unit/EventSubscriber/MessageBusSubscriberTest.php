@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TraceBundle\Tests\TestCase\Unit;
+namespace TraceBundle\Tests\TestCase\Unit\EventSubscriber;
 
 use Enqueue\AmqpLib\AmqpContext;
 use Interop\Amqp\Impl\AmqpMessage;
@@ -11,6 +11,7 @@ use MessageBusBundle\Events\PrePublishEvent;
 use PHPUnit\Framework\TestCase;
 use TraceBundle\EventSubscriber\MessageBusSubscriber;
 use TraceBundle\Storage\TraceIdStorage;
+use TraceBundle\Tests\Helper\MockGeneratorTrait;
 
 class MessageBusSubscriberTest extends TestCase
 {

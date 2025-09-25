@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TraceBundle\Tests\TestCase\Unit;
+namespace TraceBundle\Tests\TestCase\Unit\EventSubscriber;
 
 use Monolog\Test\TestCase;
 use Symfony\Component\HttpFoundation\Request;

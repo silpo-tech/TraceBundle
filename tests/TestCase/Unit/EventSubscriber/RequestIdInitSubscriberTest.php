@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TraceBundle\Tests\TestCase\Unit;
+namespace TraceBundle\Tests\TestCase\Unit\EventSubscriber;
 
 use Monolog\Test\TestCase;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,6 +11,7 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
 use TraceBundle\EventSubscriber\RequestIdInitSubscriber;
 use TraceBundle\Generator\UuidGenerator;
 use TraceBundle\Storage\TraceIdStorage;
+use TraceBundle\Tests\Helper\MockGeneratorTrait;
 use TraceBundle\Tests\TestKernel;
 
 class RequestIdInitSubscriberTest extends TestCase

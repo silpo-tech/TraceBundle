@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TraceBundle\Tests\TestCase\Unit;
+namespace TraceBundle\Tests\Helper;
 
 use PHPUnit\Framework\MockObject\MockObject;
 use TraceBundle\Generator\TraceIdGeneratorInterface;
