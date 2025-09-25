@@ -32,12 +32,9 @@
         "sentry/sentry": "Adds sentry tracing middleware to Guzzle handlers",
         "silpo-tech/message-bus-bundle": "Adds correlation ids to messages and to logs"
     },
-    "conflict": {
-        "silpo-tech/message-bus-bundle": "<1.4.5"
-    },
     "require-dev": {
         "sentry/sentry": "^4.9",
-        "silpo-tech/message-bus-bundle": "^1.4.5",
+        "silpo-tech/message-bus-bundle": "^1.0",
         "phpunit/phpunit": "^11.5",
         "enqueue/enqueue-bundle": "^0.10.24",
         "phpstan/phpstan": "^2.0",

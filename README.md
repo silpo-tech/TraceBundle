@@ -91,7 +91,7 @@ When `sentry/sentry` is installed, the bundle automatically enriches Sentry tran
 
 ### Message Bus
 
-When `silpo-tech/message-bus-bundle` is installed (version ≥1.4.5), trace IDs are automatically propagated through message bus operations.
+When `silpo-tech/message-bus-bundle` is installed, trace IDs are automatically propagated through message bus operations.
 
 ## Requirements
 
