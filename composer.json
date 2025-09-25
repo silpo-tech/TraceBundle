@@ -2,8 +2,9 @@
     "name": "phplib/trace-bundle",
     "type": "symfony-bundle",
     "description": "Trace bundle for Symfony",
-    "license": "proprietary",
+    "license": "MIT",
     "minimum-stability": "stable",
+    "prefer-stable": true,
     "require": {
         "php": ">=8.3",
         "symfony/http-kernel": "^6.4|^7.0",
@@ -13,6 +14,9 @@
         "symfony/config": "^6.4|^7.0",
         "guzzlehttp/guzzle": "^7.0",
         "symfony/yaml": "^7.2"
+    },
+    "config": {
+        "bin-dir": "bin"
     },
     "autoload": {
         "psr-4": {
@@ -40,11 +44,20 @@
     "conflict": {
         "phplib/message-bus-bundle": "<1.4.5"
     },
-    "prefer-stable": true,
     "require-dev": {
         "sentry/sentry": "^4.9",
         "phplib/message-bus-bundle": "^1.4.5",
         "phpunit/phpunit": "^11.5",
-        "enqueue/enqueue-bundle": "^0.10.24"
+        "enqueue/enqueue-bundle": "^0.10.24",
+        "phpstan/phpstan": "^2.0",
+        "friendsofphp/php-cs-fixer": "^3.0"
+    },
+    "scripts": {
+        "test:coverage": {
+            "command": "APP_ENV=test php -d extension=pcov.so -d pcov.enabled=1 bin/phpunit --colors=never --coverage-clover reports/coverage/clover.xml --log-junit reports/junit.xml"
+        },
+        "test:run": [
+            "APP_ENV=test php bin/phpunit --color=always"
+        ]
     }
 }
