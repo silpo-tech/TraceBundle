@@ -1,7 +1,7 @@
 # Trace Bundle
 
-[![CI](https://github.com/silpo-tech/trace-bundle/workflows/CI/badge.svg)](https://github.com/silpo-tech/trace-bundle/actions)
-[![codecov](https://codecov.io/gh/silpo-tech/trace-bundle/branch/main/graph/badge.svg)](https://codecov.io/gh/silpo-tech/trace-bundle)
+[![CI](https://github.com/silpo-tech/TraceBundle/workflows/CI/badge.svg)](https://github.com/silpo-tech/TraceBundle/actions)
+[![codecov](https://codecov.io/gh/silpo-tech/TraceBundle/branch/main/graph/badge.svg)](https://codecov.io/gh/silpo-tech/TraceBundle)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A Symfony bundle for distributed tracing and request correlation across microservices.
