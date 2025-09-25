@@ -30,8 +30,8 @@ final readonly class SentryTransactionEnrichSubscriber implements EventSubscribe
 
     public function addRequestIdToSentryTransaction(RequestEvent $event): void
     {
-        $checker = $this->sentryClassChecker ?? fn(string $class) => class_exists($class);
-        
+        $checker = $this->sentryClassChecker ?? fn (string $class) => class_exists($class);
+
         if (!$checker(SentrySdk::class)) {
             return;
         }

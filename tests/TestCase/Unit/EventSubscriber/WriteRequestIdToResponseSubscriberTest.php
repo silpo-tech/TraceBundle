@@ -40,7 +40,7 @@ class WriteRequestIdToResponseSubscriberTest extends TestCase
     public function testGetSubscribedEvents(): void
     {
         $events = WriteRequestIdToResponseSubscriber::getSubscribedEvents();
-        
+
         $this->assertArrayHasKey('kernel.response', $events);
         $this->assertEquals([['onResponse', 0]], $events['kernel.response']);
     }

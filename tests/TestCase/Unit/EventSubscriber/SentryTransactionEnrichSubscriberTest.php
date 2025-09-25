@@ -46,7 +46,7 @@ class SentryTransactionEnrichSubscriberTest extends TestCase
     public function testGetSubscribedEvents(): void
     {
         $events = SentryTransactionEnrichSubscriber::getSubscribedEvents();
-        
+
         $this->assertArrayHasKey('kernel.request', $events);
         $this->assertEquals([['addRequestIdToSentryTransaction', 1200]], $events['kernel.request']);
     }
@@ -61,13 +61,13 @@ class SentryTransactionEnrichSubscriberTest extends TestCase
         );
         $storage = new TraceIdStorage();
         $storage->set('test-uuid');
-        
+
         $subscriber = new SentryTransactionEnrichSubscriber(
-            $storage, 
+            $storage,
             'X-Request-Id',
-            fn(string $class) => false // Simulate Sentry not installed
+            fn (string $class) => false // Simulate Sentry not installed
         );
-        
+
         // Should return early without error
         $subscriber->addRequestIdToSentryTransaction($event);
         $this->addToAssertionCount(1);

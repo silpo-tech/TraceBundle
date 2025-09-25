@@ -42,7 +42,7 @@ class MessageBusSubscriberTest extends TestCase
     public function testGetSubscribedEvents(): void
     {
         $events = MessageBusSubscriber::getSubscribedEvents();
-        
+
         $this->assertArrayHasKey('producer.pre_publish', $events);
         $this->assertArrayHasKey('consume.pre_start', $events);
         $this->assertEquals('prePublish', $events['producer.pre_publish']);

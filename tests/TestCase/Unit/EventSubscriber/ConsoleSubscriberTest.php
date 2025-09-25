@@ -36,7 +36,7 @@ class ConsoleSubscriberTest extends TestCase
     public function testGetSubscribedEvents(): void
     {
         $events = ConsoleSubscriber::getSubscribedEvents();
-        
+
         $this->assertArrayHasKey('console.command', $events);
         $this->assertEquals([['__invoke', 512]], $events['console.command']);
     }
