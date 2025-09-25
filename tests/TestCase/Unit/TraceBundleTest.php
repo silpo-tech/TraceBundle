@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace TraceBundle\Tests\TestCase\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\Configurator\DefinitionConfigurator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use TraceBundle\TraceBundle;
@@ -27,7 +26,7 @@ class TraceBundleTest extends TestCase
     public function testConfigureDoesNotThrowException(): void
     {
         $bundle = new TraceBundle();
-        
+
         try {
             // This will fail due to mock limitations, but we're testing the method exists and is callable
             $definition = $this->createMock(DefinitionConfigurator::class);
@@ -36,7 +35,7 @@ class TraceBundleTest extends TestCase
             // Expected to fail due to mocking limitations
             $this->assertStringContainsString('rootNode', $e->getMessage());
         }
-        
+
         $this->addToAssertionCount(1);
     }
 
@@ -44,7 +43,7 @@ class TraceBundleTest extends TestCase
     {
         $bundle = new TraceBundle();
         $containerBuilder = new ContainerBuilder();
-        
+
         try {
             // This will fail due to mock limitations, but we're testing the method exists and is callable
             $containerConfigurator = $this->createMock(\Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator::class);
@@ -61,7 +60,7 @@ class TraceBundleTest extends TestCase
             // Other expected failures (like missing YAML file)
             $this->addToAssertionCount(1);
         }
-        
+
         $this->addToAssertionCount(1);
     }
 }
