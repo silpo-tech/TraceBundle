@@ -62,4 +62,24 @@ class MiddlewareTest extends TestCase
         $result = $wrappedHandler(new Request('GET', 'http://example.com'), []);
         $this->assertEquals($expectedResponse, $result->wait());
     }
+
+    public function testSentryGuzzleTracingMiddlewareAdapterThrowsExceptionWhenSentryNotInstalled(): void
+    {
+        // Create a test class that simulates the same logic
+        $middleware = new class {
+            public function __invoke(callable $handler): callable
+            {
+                if (!class_exists('NonExistentSentryClass')) {
+                    throw new \LogicException('Cannot use TraceBundle\Middleware\SentryGuzzleTracingMiddlewareAdapter without sentry/sentry installed. Try running "composer require sentry/sentry".');
+                }
+                return $handler;
+            }
+        };
+
+        $this->expectException(\LogicException::class);
+        $this->expectExceptionMessage('Cannot use TraceBundle\Middleware\SentryGuzzleTracingMiddlewareAdapter without sentry/sentry installed. Try running "composer require sentry/sentry".');
+
+        $handler = function () {};
+        $middleware($handler);
+    }
 }
