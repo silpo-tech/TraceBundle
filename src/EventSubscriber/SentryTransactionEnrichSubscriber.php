@@ -15,6 +15,7 @@ final readonly class SentryTransactionEnrichSubscriber implements EventSubscribe
     public function __construct(
         private TraceIdStorageInterface $traceIdStorage,
         private string $traceIdHeaderName,
+        private ?\Closure $sentryClassChecker = null,
     ) {
     }
 
@@ -29,7 +30,9 @@ final readonly class SentryTransactionEnrichSubscriber implements EventSubscribe
 
     public function addRequestIdToSentryTransaction(RequestEvent $event): void
     {
-        if (!class_exists(SentrySdk::class)) {
+        $checker = $this->sentryClassChecker ?? fn (string $class) => class_exists($class);
+
+        if (!$checker(SentrySdk::class)) {
             return;
         }
 

@@ -53,4 +53,12 @@ class RequestIdInitSubscriberTest extends TestCase
         $this->assertNotEmpty($storage->get());
         $this->assertEquals('test-uuid', $storage->get());
     }
+
+    public function testGetSubscribedEvents(): void
+    {
+        $events = RequestIdInitSubscriber::getSubscribedEvents();
+
+        $this->assertArrayHasKey('kernel.request', $events);
+        $this->assertEquals([['onRequest', 1536]], $events['kernel.request']);
+    }
 }
