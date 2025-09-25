@@ -22,21 +22,21 @@ class TraceBundleTest extends TestCase
         $this->assertEquals(2, $finalPassCount - $initialPassCount);
     }
 
-    public function testConfigureDoesNotThrowException(): void
+    public function testConfigureMethodExists(): void
     {
         $bundle = new TraceBundle();
-        
-        // Verify the method signature is correct
         $reflection = new \ReflectionMethod($bundle, 'configure');
+        
+        $this->assertTrue($reflection->isPublic());
         $this->assertEquals(1, $reflection->getNumberOfParameters());
     }
 
     public function testLoadExtensionMethodExists(): void
     {
         $bundle = new TraceBundle();
-        
-        // Verify method signature
         $reflection = new \ReflectionMethod($bundle, 'loadExtension');
+        
+        $this->assertTrue($reflection->isPublic());
         $this->assertEquals(3, $reflection->getNumberOfParameters());
     }
 }
