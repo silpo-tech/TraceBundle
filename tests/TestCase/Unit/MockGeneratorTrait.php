@@ -9,9 +9,8 @@ use TraceBundle\Generator\TraceIdGeneratorInterface;
 
 trait MockGeneratorTrait
 {
-    protected function getIdGeneratorMock(string $uuid): TraceIdGeneratorInterface | MockObject
+    protected function getIdGeneratorMock(string $uuid): MockObject|TraceIdGeneratorInterface
     {
-        /** @var TraceIdGeneratorInterface $generator */
         $generator = $this->createMock(TraceIdGeneratorInterface::class);
         $generator
             ->method('generate')

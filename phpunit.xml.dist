@@ -8,7 +8,12 @@
          cacheDirectory=".phpunit.cache"
          testdox="true"
          bootstrap="tests/bootstrap.php">
-    <coverage/>
+    <coverage>
+        <report>
+            <clover outputFile="reports/coverage/clover.xml"/>
+            <html outputDirectory="reports/coverage/html"/>
+        </report>
+    </coverage>
     <php>
         <env name="KERNEL_CLASS" value="TraceBundle\Tests\TestKernel"/>
         <env name="APP_ENV" value="test" force="true"/>

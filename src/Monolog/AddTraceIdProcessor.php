@@ -18,7 +18,7 @@ final class AddTraceIdProcessor implements ProcessorInterface
     {
         $traceId = $this->traceIdStorage->get();
 
-        if ($traceId !== null) {
+        if (null !== $traceId) {
             $record['extra'][$this->extraFieldName] = $this->traceIdStorage->get();
         }
 

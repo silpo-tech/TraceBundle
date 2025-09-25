@@ -29,7 +29,7 @@ final readonly class ConsoleSubscriber implements EventSubscriberInterface
 
     public function __invoke(ConsoleCommandEvent $event): void
     {
-        if ($this->traceIdStorage->get() === null) {
+        if (null === $this->traceIdStorage->get()) {
             $this->traceIdStorage->set($this->traceIdGenerator->generate());
         }
     }

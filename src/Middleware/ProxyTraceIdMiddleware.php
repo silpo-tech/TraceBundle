@@ -27,7 +27,7 @@ final readonly class ProxyTraceIdMiddleware
     private function addTraceId(RequestInterface $request): RequestInterface
     {
         $traceId = $this->traceIdStorage->get();
-        if ($traceId !== null) {
+        if (null !== $traceId) {
             $request = $request->withAddedHeader($this->traceIdHeaderName, $traceId);
         }
 

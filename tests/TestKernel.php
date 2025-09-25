@@ -8,9 +8,7 @@ use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 use Symfony\Component\HttpKernel\Kernel;
 use TraceBundle\TraceBundle;
 
@@ -20,11 +18,11 @@ class TestKernel extends Kernel
 
     public const array DEFAULT_BUNDLES = [
         FrameworkBundle::class,
-        TraceBundle::class
+        TraceBundle::class,
     ];
 
     public const array DEFAULT_CONFIGS = [
-        __DIR__.'/Resources/config/framework.yaml'
+        __DIR__.'/Resources/config/framework.yaml',
     ];
 
     public const array MESSAGE_BUS_CONFIGS = [
@@ -39,8 +37,7 @@ class TestKernel extends Kernel
         protected iterable $testBundle = self::DEFAULT_BUNDLES,
         /** @var string[]|callable[] */
         protected iterable $testConfigs = self::DEFAULT_CONFIGS
-    )
-    {
+    ) {
         parent::__construct($environment, $debug);
     }
 
@@ -56,7 +53,7 @@ class TestKernel extends Kernel
 
     public function getConfigDir(): string
     {
-        return $this->getProjectDir() . '/src/Resources/config';
+        return $this->getProjectDir().'/src/Resources/config';
     }
 
     public function getCacheDir(): string
@@ -113,10 +110,11 @@ class TestKernel extends Kernel
     public function getTagged(string $tag): array
     {
         $container = $this->getContainerBuilder();
+
         return $container->findTaggedServiceIds($tag);
     }
 
-    public function getContainerBuilder() : ContainerBuilder
+    public function getContainerBuilder(): ContainerBuilder
     {
         return parent::getContainerBuilder();
     }

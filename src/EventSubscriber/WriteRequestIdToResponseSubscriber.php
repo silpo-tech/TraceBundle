@@ -31,7 +31,7 @@ final readonly class WriteRequestIdToResponseSubscriber implements EventSubscrib
         $response = $event->getResponse();
         $traceId = $this->traceIdStorage->get();
 
-        if ($traceId !== null) {
+        if (null !== $traceId) {
             $response->headers->set($this->traceIdHeaderName, $traceId, false);
         }
     }

@@ -32,7 +32,7 @@ final readonly class MessageBusSubscriber implements EventSubscriberInterface
     {
         $traceId = $this->traceIdStorage->get();
 
-        if ($traceId !== null) {
+        if (null !== $traceId) {
             $event->getMessage()->setCorrelationId($traceId);
             $event->getMessage()->setHeader($this->traceIdHeaderName, $traceId);
         }
@@ -42,7 +42,7 @@ final readonly class MessageBusSubscriber implements EventSubscriberInterface
     {
         $correlationId = $event->getMessage()->getCorrelationId();
 
-        if ($correlationId === null) {
+        if (null === $correlationId) {
             $correlationId = $this->traceIdGenerator->generate();
         }
 

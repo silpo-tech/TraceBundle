@@ -6,7 +6,7 @@ namespace TraceBundle\Storage;
 
 interface TraceIdStorageInterface
 {
-    public function get(): string|null;
+    public function get(): ?string;
 
     public function set(string $traceId): self;
 }
