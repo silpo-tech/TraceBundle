@@ -6,14 +6,19 @@ namespace TraceBundle\Middleware;
 
 use Sentry\Tracing\GuzzleTracingMiddleware;
 
-final readonly class SentryGuzzleTracingMiddlewareAdapter
+class SentryGuzzleTracingMiddlewareAdapter
 {
     public function __invoke(callable $handler): callable
     {
-        if (!class_exists(GuzzleTracingMiddleware::class)) {
+        if (!$this->sentryClassExists()) {
             throw new \LogicException('Cannot use TraceBundle\Middleware\SentryGuzzleTracingMiddlewareAdapter without sentry/sentry installed. Try running "composer require sentry/sentry".');
         }
 
         return GuzzleTracingMiddleware::trace()($handler);
+    }
+
+    protected function sentryClassExists(): bool
+    {
+        return class_exists(GuzzleTracingMiddleware::class);
     }
 }

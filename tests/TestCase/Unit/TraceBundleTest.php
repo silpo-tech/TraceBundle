@@ -26,7 +26,7 @@ class TraceBundleTest extends TestCase
     {
         $bundle = new TraceBundle();
         $reflection = new \ReflectionMethod($bundle, 'configure');
-        
+
         $this->assertTrue($reflection->isPublic());
         $this->assertEquals(1, $reflection->getNumberOfParameters());
     }
@@ -35,7 +35,7 @@ class TraceBundleTest extends TestCase
     {
         $bundle = new TraceBundle();
         $reflection = new \ReflectionMethod($bundle, 'loadExtension');
-        
+
         $this->assertTrue($reflection->isPublic());
         $this->assertEquals(3, $reflection->getNumberOfParameters());
     }
