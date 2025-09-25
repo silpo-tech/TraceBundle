@@ -39,7 +39,7 @@ class TraceBundle extends AbstractBundle
 
     public function loadExtension(array $config, ContainerConfigurator $containerConfigurator, ContainerBuilder $containerBuilder): void
     {
-        $loader = new YamlFileLoader($containerBuilder, new FileLocator(__DIR__ . '/Resources/config'));
+        $loader = new YamlFileLoader($containerBuilder, new FileLocator(__DIR__.'/Resources/config'));
         $loader->load('services.yaml');
 
         if ($config['autoconfigure_handlers']) {

@@ -8,13 +8,13 @@ use Symfony\Contracts\Service\ResetInterface;
 
 final class TraceIdStorage implements ResetInterface, TraceIdStorageInterface
 {
-    public string|null $traceId = null;
+    public ?string $traceId = null;
 
     public function __construct()
     {
     }
 
-    public function get(): string|null
+    public function get(): ?string
     {
         return $this->traceId;
     }

@@ -31,7 +31,7 @@ final readonly class RequestIdInitSubscriber implements EventSubscriberInterface
     public function onRequest(RequestEvent $event): void
     {
         $traceId = $event->getRequest()->headers->get($this->traceIdHeaderName);
-        if ($traceId === null) {
+        if (null === $traceId) {
             $traceId = $this->traceIdGenerator->generate();
         }
 

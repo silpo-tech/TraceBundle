@@ -35,7 +35,7 @@ final readonly class SentryTransactionEnrichSubscriber implements EventSubscribe
 
         $sentryTransaction = SentrySdk::getCurrentHub()->getTransaction();
         $currentRequestTraceId = $this->traceIdStorage->get();
-        if ($sentryTransaction === null || $currentRequestTraceId === null) {
+        if (null === $sentryTransaction || null === $currentRequestTraceId) {
             return;
         }
 
