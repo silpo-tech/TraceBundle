@@ -36,4 +36,12 @@ class WriteRequestIdToResponseSubscriberTest extends TestCase
         $this->assertNotEmpty($response->headers->get($key));
         $this->assertEquals($uuid, $response->headers->get($key));
     }
+
+    public function testGetSubscribedEvents(): void
+    {
+        $events = WriteRequestIdToResponseSubscriber::getSubscribedEvents();
+        
+        $this->assertArrayHasKey('kernel.response', $events);
+        $this->assertEquals([['onResponse', 0]], $events['kernel.response']);
+    }
 }
