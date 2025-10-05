@@ -1,3 +1,0 @@
-include:
-  - project: 'common/devops/templates/gitlab-templates'
-    file: 'php-lib/.gitlab-ci.yaml'
