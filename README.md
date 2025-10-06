@@ -38,9 +38,9 @@ Create `config/packages/trace.yaml`:
 
 ```yaml
 trace:
-    id_header_name: 'X-Request-Id'        # Header name for trace ID (default)
-    id_log_extra_name: 'requestId'        # Log field name for trace ID (default)
-    autoconfigure_handlers: true          # Auto-configure Guzzle handlers (default)
+    id_header_name: 'X-Some-Id'        # Header name for trace ID (required)
+    id_log_extra_name: 'someId'        # Log field name for trace ID (required)
+    autoconfigure_handlers: true          # Auto-configure Guzzle handlers (default: true)
 ```
 
 ## Usage
@@ -48,7 +48,7 @@ trace:
 ### HTTP Requests
 
 The bundle automatically:
-1. Extracts trace ID from incoming request headers (`X-Request-Id` by default)
+1. Extracts trace ID from incoming request headers (`X-Some-Id` by default)
 2. Generates a new UUID if no trace ID is present
 3. Adds the trace ID to response headers
 4. Propagates trace ID to outgoing HTTP requests via Guzzle middleware

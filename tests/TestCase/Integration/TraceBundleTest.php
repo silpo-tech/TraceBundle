@@ -16,8 +16,8 @@ class TraceBundleTest extends TestCase
         $kernel->boot();
         $container = $kernel->getContainer();
         $this->assertInstanceOf(TraceIdStorage::class, $container->get('trace.storage'));
-        $this->assertEquals('X-Request-Id', $container->getParameter('trace.id_header_name'));
-        $this->assertEquals('requestId', $container->getParameter('trace.id_log_extra_name'));
+        $this->assertEquals('X-Some-Id', $container->getParameter('trace.id_header_name'));
+        $this->assertEquals('someId', $container->getParameter('trace.id_log_extra_name'));
         $this->assertTrue($container->has('trace.client.middleware_sentry'));
         $this->assertTrue($container->has('trace.client.middleware'));
     }

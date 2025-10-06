@@ -1,0 +1,4 @@
+trace:
+  id_header_name: 'X-Some-Id'
+  id_log_extra_name: 'someId'
+  autoconfigure_handlers: true

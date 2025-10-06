@@ -23,10 +23,12 @@ class TestKernel extends Kernel
 
     public const array DEFAULT_CONFIGS = [
         __DIR__.'/Resources/config/framework.yaml',
+        __DIR__.'/Resources/config/trace.yaml',
     ];
 
     public const array MESSAGE_BUS_CONFIGS = [
         __DIR__.'/Resources/config/framework.yaml',
+        __DIR__.'/Resources/config/trace.yaml',
         __DIR__.'/Resources/config/enqueue.yaml',
     ];
 
