@@ -13,6 +13,7 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder('trace');
 
+        // @phpstan-ignore-next-line
         $treeBuilder->getRootNode()
             ->children()
                 ->scalarNode('id_header_name')->isRequired()->cannotBeEmpty()->end()
